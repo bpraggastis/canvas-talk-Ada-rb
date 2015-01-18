@@ -1,0 +1,5 @@
+#paper1, #paper2 {
+  margin: 30px;
+  float: left;
+  border: solid green;
+}

@@ -1,0 +1,10 @@
+#paper {
+  /*margin: 30px;
+  border: solid green;*/
+  background-color: yellow;
+
+  /*don't set the width and height of your canvas
+  in css because it will distort the figures! Try it. */
+  /*width: 300px;
+  height: 300px;*/
+}
