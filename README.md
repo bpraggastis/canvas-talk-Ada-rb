@@ -8,7 +8,9 @@ canvas = document.getElementById(‘paper’);	context = canvas.getContext(‘2
  ````
 
 The context has methods which will build graphics:
-- Example-Arc: `context.arc(x, y, radius, start-angle-radians, stop-angle-radians, counterclockwise=false);`
+- Example-Arc: <br>
+
+`context.arc(x, y, radius, start-angle-radians, stop-angle-radians, counterclockwise=false);`
 - Example-Rectangle: `context.rect(x, y, dx, dy);`
 To see an object you need either .fill() or .stroke(). 
 ```markupcontext.fillStyle() = ‘green’;  //default color is blackcontext.fill();context.strokeStyle() = ‘blue’;context.stroke();
