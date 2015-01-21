@@ -2,12 +2,12 @@
  * cookie.js
  * A simple cookie library supporting hash trees
  * Requires Joe Tools for merge_objects() and serialize().
- * 
+ *
  * var tree = new CookieTree();
  * tree.set( "foo", "bar" );
  * tree.set( "complex", { hello: "there", array: [1,2,3] } );
  * tree.save();
- * 
+ *
  * Copyright (c) 2007 Joseph Huckaby.
  * Released under the LGPL v3.0: http://www.opensource.org/licenses/lgpl-3.0.html
  */
@@ -20,13 +20,13 @@ function CookieTree(args) {
 	if (args) {
 		for (var key in args) this[key] = args[key];
 	}
-	
+
 	if (!this.expires) {
 		var now = new Date();
 		now.setFullYear( now.getFullYear() + 10 ); // 10 years from now
 		this.expires = now.toGMTString();
 	}
-	
+
 	this.parse();
 };
 
@@ -48,9 +48,9 @@ CookieTree.prototype.parse = function() {
 			}
 			catch (e) {
 				// Debug.trace("Cookie", "Failed to parse cookie.");
-				cookie = {}; 
+				cookie = {};
 			}
-			
+
 			this.tree = merge_objects( this.tree, cookie );
 			idx = len;
 		}
@@ -70,34 +70,34 @@ CookieTree.prototype.set = function(key, value) {
 CookieTree.prototype.save = function() {
 	// serialize tree and save back into document.cookie
 	var cookie_raw = 'CookieTree=' + escape(serialize(this.tree));
-	
+
 	if (!this.path.match(/\/$/)) {
 		this.path = this.path.replace(/\/[^\/]+$/, "") + '/';
 	}
-	
+
 	cookie_raw += '; expires=' + this.expires;
 	cookie_raw += '; domain=' + this.domain;
 	cookie_raw += '; path=' + this.path;
-	
+
 	// Debug.trace("Cookie", "Saving cookie: " + cookie_raw);
-	
+
 	document.cookie = cookie_raw;
 };
 
 CookieTree.prototype.remove = function() {
 	// remove cookie from document
 	var cookie_raw = 'CookieTree={}';
-	
+
 	if (!this.path.match(/\/$/)) {
 		this.path = this.path.replace(/\/[^\/]+$/, "") + '/';
 	}
-	
+
 	var now = new Date();
 	now.setFullYear( now.getFullYear() - 1 ); // last year
 	cookie_raw += '; expires=' + now.toGMTString();
-	
+
 	cookie_raw += '; domain=' + this.domain;
 	cookie_raw += '; path=' + this.path;
-	
+
 	document.cookie = cookie_raw;
 };
