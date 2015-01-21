@@ -1,11 +1,10 @@
 //  Here are a few examples of placing images on a canvas
-
 var canvas = document.getElementById('paper');
 var context = canvas.getContext('2d');
 
 // // Draw some filled in circles
 // context.beginPath();
-// context.arc(150,75,25,0,Math.PI*2);
+// context.arc(150,75,25,0,Math.PI);
 // context.fill();
 //
 // context.beginPath();
@@ -13,7 +12,7 @@ var context = canvas.getContext('2d');
 // context.fillStyle = 'green';
 // context.fill();
 // context.lineWidth = 5;
-// context.strokeStyle = "blue";
+// context.strokeStyle = 'blue';
 // context.stroke();
 //
 // context.beginPath();

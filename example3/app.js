@@ -11,9 +11,9 @@ context.lineWidth = 10;
 
 // putPoint starts by drawing a line to the current position from the last point
 // in the active path, (if there is one). Then it draws a circle, begins a new path,
-// and ends. If the mouse moves it repeats. If the mouse lifts the process stops.
+// and waits. If the mouse moves it repeats. If the mouse lifts the process stops.
 
-// We subtract 30 from e.clientX to compensate for the margin 30 in the
+// I subtracted 30 from e.clientX to compensate for the margin 30 in the
 // css file which is effecting the position of the drawing.
 
 var putPoint = function(e){

@@ -18,16 +18,17 @@ var putPoint = function(e){
   i++;
 };
 
-setInterval(draw, 10);
+setInterval(draw, 20);
 
 function draw(){
   if (active === true) {
+    // context.clearRect ( 0 , 0 , canvas.width, canvas.height );
     context.beginPath();
     context.arc(x, y, 10, 0, Math.PI*2);
     context.fill();
     console.log("(", x,",",  y,")");
-    x = (x + 20) % 300;
-    y = (y + 10*Math.PI) % 300;
+    x = (x + 25) % 300;
+    y = (y + Math.PI) % 300;
   }
 }
 
